@@ -104,6 +104,13 @@
               title="{{ SITENAME }} {{ category }} ATOM Feed"/>
     {% endif %}
 
+    {% if article %}
+        {% if article.stylesheets %}
+            {% for stylesheet in article.stylesheets %}
+{{ stylesheet }}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
 </head>
 <body>
 
@@ -232,4 +239,11 @@
 
 {% block scripts %}{% endblock %}
 </body>
+{% if article %}
+    {% if article.javascripts %}
+        {% for javascript in article.javascripts %}
+{{ javascript }}
+        {% endfor %}
+    {% endif %}
+{% endif %}
 </html>
